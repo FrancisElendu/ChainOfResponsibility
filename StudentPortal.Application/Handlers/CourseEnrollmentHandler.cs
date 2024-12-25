@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentPortal.Core.Handlers
+namespace StudentPortal.Application.Handlers
 {
     public class CourseEnrollmentHandler : RequestHandlerBase
     {
@@ -13,6 +13,7 @@ namespace StudentPortal.Core.Handlers
         {
             // Simulate course enrollment
             request.Status = "Enrolled";
+            request.IsGradeAssigned = true;
             Console.WriteLine($"Student {request.StudentId} enrolled in course {request.CourseId}.");
             base.Handle(request);
         }

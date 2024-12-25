@@ -1,12 +1,12 @@
 ﻿using StudentPortal.Core.Entities;
-using StudentPortal.Core.Handlers;
+using StudentPortal.Application.Handlers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentPortal.Core.Pipelines
+namespace StudentPortal.Application.Pipelines
 {
     public class CourseEnrollmentPipeline : ICourseEnrollmentPipeline
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentPortal.Core.Handlers
+namespace StudentPortal.Application.Handlers
 {
     public class NotificationHandler : RequestHandlerBase
     {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using StudentPortal.Core.Handlers;
-using StudentPortal.Core.Pipelines;
-using StudentPortal.Core.Services;
+using StudentPortal.Application.Handlers;
+using StudentPortal.Application.Pipelines;
+using StudentPortal.Application.Services;
 
-namespace StudentPortal.Core.Extensions
+namespace StudentPortal.Application.Extensions
 {
     public static class ServiceCollectionExtensions
     {
@@ -15,9 +15,11 @@ namespace StudentPortal.Core.Extensions
         public static IServiceCollection AddCoreServices(this IServiceCollection services)
         {
             // Register handlers
+            services.AddTransient<IRequestHandler, SaveToDatabaseHandler>();
             services.AddTransient<IRequestHandler, CourseEnrollmentHandler>();
             services.AddTransient<IRequestHandler, GradeAssignmentHandler>();
             services.AddTransient<IRequestHandler, NotificationHandler>();
+            
 
             // Register pipelines
             services.AddTransient<ICourseEnrollmentPipeline, CourseEnrollmentPipeline>();

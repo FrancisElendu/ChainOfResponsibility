@@ -1,6 +1,6 @@
 ﻿using StudentPortal.Core.Entities;
 
-namespace StudentPortal.Core.Handlers
+namespace StudentPortal.Application.Handlers
 {
     public abstract class RequestHandlerBase : IRequestHandler
     {

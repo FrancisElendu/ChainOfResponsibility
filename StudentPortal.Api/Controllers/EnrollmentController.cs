@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using StudentPortal.Core.Services;
+using StudentPortal.Application.Services;
+using StudentPortal.Core.Entities;
+
 
 namespace StudentPortal.Api.Controllers
 {
@@ -23,12 +25,15 @@ namespace StudentPortal.Api.Controllers
         /// <param name="courseId">The ID of the course.</param>
         /// <returns>Action result indicating the status of enrollment.</returns>
         [HttpPost("enroll")]
-        public IActionResult EnrollStudent(int studentId, int courseId)
+        //public IActionResult EnrollStudent(int studentId, int courseId)
+        public IActionResult EnrollStudent(CourseEnrollmentRequest request)
         {
             try
             {
-                _courseEnrollmentService.EnrollStudent(studentId, courseId);
-                return Ok($"Student {studentId} has been successfully enrolled in course {courseId}.");
+                //_courseEnrollmentService.EnrollStudent(studentId, courseId);
+                _courseEnrollmentService.EnrollStudent(request);
+                //return Ok($"Student {studentId} has been successfully enrolled in course {courseId}.");
+                return Ok($"Student {request.StudentId} has been successfully enrolled in course {request.CourseId}.");
             }
             catch (Exception ex)
             {

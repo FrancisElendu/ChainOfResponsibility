@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentPortal.Core.Pipelines
+namespace StudentPortal.Application.Pipelines
 {
     public interface ICourseEnrollmentPipeline
     {

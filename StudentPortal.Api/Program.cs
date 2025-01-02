@@ -1,5 +1,8 @@
 using StudentPortal.Application.Extensions;
+using StudentPortal.Core.GenericRepositories;
 using StudentPortal.Infrastructure.Extensions;
+using StudentPortal.Infrastructure.GenericRepositories;
+using System.Xml;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +15,10 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCoreServices();
 builder.Services.AddInfrastructure(builder.Configuration);
+
+// Add IRepository<TEntity> to DI (example)
+//builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
+
 
 var app = builder.Build();
 

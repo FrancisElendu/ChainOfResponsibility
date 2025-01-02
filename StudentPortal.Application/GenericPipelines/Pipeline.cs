@@ -1,16 +1,20 @@
-﻿using StudentPortal.Application.Handlers;
-using StudentPortal.Core.Entities;
+﻿using StudentPortal.Application.GenericHandlers;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace StudentPortal.Application.Pipelines
+namespace StudentPortal.Application.GenericPipelines
 {
-    public class CourseEnrollmentPipeline : ICourseEnrollmentPipeline
+    public class Pipeline<TRequest> : IPipeline<TRequest>
     {
-        private readonly IRequestHandler? _firstHandler;
+        private readonly IHandler<TRequest>? _firstHandler;
 
-        public CourseEnrollmentPipeline(IEnumerable<IRequestHandler> handlers)
+        public Pipeline(IEnumerable<IHandler<TRequest>> handlers)
         {
             // Chain handlers dynamically
-            IRequestHandler? currentHandler = null;
+            IHandler<TRequest>? currentHandler = null;
             foreach (var handler in handlers)
             {
                 if (currentHandler == null)
@@ -24,10 +28,10 @@ namespace StudentPortal.Application.Pipelines
                 }
             }
         }
-        public void Process(CourseEnrollmentRequest request)
+
+        public void Process(TRequest request)
         {
             _firstHandler?.Handle(request);
         }
-
     }
 }

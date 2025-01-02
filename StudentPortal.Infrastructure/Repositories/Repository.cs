@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using StudentPortal.Core.Repositories;
+﻿using StudentPortal.Core.Repositories;
 using StudentPortal.Infrastructure.Data;
 
 namespace StudentPortal.Infrastructure.Repositories

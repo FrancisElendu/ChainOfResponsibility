@@ -19,7 +19,7 @@ namespace StudentPortal.Application.Extensions
             services.AddTransient<IRequestHandler, CourseEnrollmentHandler>();
             services.AddTransient<IRequestHandler, GradeAssignmentHandler>();
             services.AddTransient<IRequestHandler, NotificationHandler>();
-            
+
 
             // Register pipelines
             services.AddTransient<ICourseEnrollmentPipeline, CourseEnrollmentPipeline>();
